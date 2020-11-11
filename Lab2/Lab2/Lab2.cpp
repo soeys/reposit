@@ -6,8 +6,7 @@ using namespace std;
 
 int main()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+
 
 
 	char name1[9] = "Соя", name2[9] = "Чумиза", name3[9] = "Рис";
