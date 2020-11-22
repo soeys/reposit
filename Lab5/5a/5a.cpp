@@ -4,7 +4,7 @@
 
 int main()
 {
-    int a, b, c, x;
+    double a, b, c, x;
     printf("Введите значение a > ");
     scanf_s("%d", &a);
     printf("Введите значение b > ");
