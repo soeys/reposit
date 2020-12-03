@@ -31,7 +31,9 @@ int main(void)
 			printf("| %5.2lf | %10.7lf |", x + n * 8, y);
 
 			h = (y + 1) * 5;
+			(y + 1) * 10 - h;
 			for (; h > 0; h--) printf(" ");
+
 			printf("*\n");
 		}
 		getchar();
