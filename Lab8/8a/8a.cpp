@@ -10,7 +10,7 @@ int main()
 	int i, n = 0, y, no, k = 0, j;
 	string answer;
 
-	for (i = 0; i < a; i++)
+	for (i = 0; i < 100; i++)
 	{
 		seats[i] = i + 1;
 	}
@@ -49,17 +49,24 @@ int main()
 		}
 
 
-	}
-	if (k == 4)
-	{
-		cout << "Places for smokes are already booked\n";
-	}
-	if (n == 4)
-	{
-		cout << "Places for smokes are already booked\n";
+
+		if (k > 4)
+		{
+			cout << "Places for  smokes are already booked\n";
+			continue;
+				}
+		if (n > 4)
+		{
+			cout << "Places for non smokes are already booked\n";
+			continue;	
+		}
+		if (n + k > 9)
+		{
+			cout << "All places are already booked";
+			break;
+		}
 	}
 
-	//int c = a - i;
-	//cout << "There are " << c << " free seats" << endl;
+	
 	return 0;
 }
