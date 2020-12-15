@@ -15,22 +15,27 @@ char Foo(int a, int b)
 		{
 			return '<';
 		}
-		else 
+		else
 			return '=';
-	}	
+	}
 }
 
 void main() 
 {
+	for (int i = 0; ; i++)
+	{
+		int a, b;
+		cout << "Введите числа для сравнения: " << endl;
+		cout << "Первое число: ";
+		cin >> a;
+		cout << "Второе число: ";
+		cin >> b;
 
-	int a, b;
-	cout << "Введите числа для сравнения: " << endl;
-	cout << "Первое число: ";
-	cin >> a;
-	cout << "Второе число: ";
-	cin >> b;
+		Foo(a, b);
 
-	Foo(a, b);
+		cout << a << Foo(a, b) << b;
+		cout << endl;
 
-	cout << a << Foo(a, b) << b;
+		continue;
+	}
 }

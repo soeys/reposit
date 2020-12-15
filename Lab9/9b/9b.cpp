@@ -1,95 +1,91 @@
+#include <time.h>
+#include <iomanip>
+#include <stdlib.h>
 #include <iostream>
+
 using namespace std;
-
-
+#define N (100)
 int main()
 {
-	int a1, a2, b1, b2, c1, c2;
-	int i, j;
-
-	cout << "Введите размерность массива А >" << endl;
-	cin >> a1 >> b1;
-
-	cout << "Введите размерность массива B >" << endl;
-	cin >> a2 >> b2;
-
-
-	if (b1 != a2)
-	{
-		cout << "Error";
-	}
-
-	int** A = new int* [a1];
-	int** B = new int* [a2];
+	srand(time(NULL));
 	
+	int m = 0, 
+		n = 0, 
+		k = 0, 
+		l = 0;
+	int mas1[N][N]{}, 
+		mas2[N][N]{}, 
+		mas3[N][N]{};
 
-	for (i = 0; i < a1; i++)
+
+	cout << "Введите размер 1 матрици:(не больше 100) ";
+	cin >> m >> n;
+	cout << "Введите размер 2 матрици:(не больше 100) ";
+	cin >> k >> l;
+
+
+	if (n != k) {
+		cout << "Неверно заданые размеры матриц!!!";
+		return 0;
+	}
+
+	for (int i = 0; i < m; i++)
 	{
-		for (j = 0; j < b1; j++)
+		for (int j = 0; j < n; j++)
 		{
-			A[i][j] = rand() % 100 + 0;
+			mas1[i][j] = rand() % 4;
 		}
 	}
 
-	for (i = 0; i < a2; i++)
+	for (int i = 0; i < k; i++)
 	{
-		for (j = 0; i < b2; j++)
+		for (int j = 0; j < l; j++)
 		{
-			B[i][j] = rand() % 100 + 0;
-		}
-	}
-	
-	for (i = 0; i < a1; i++)
-	{
-		for (j = 0; i < b1; j++)
-		{
-			cout << A[i][j] << "  ";
+			mas2[i][j] = rand() % 4;
 		}
 	}
 
-	cout << endl;
-
-	for (i = 0; i < a2; i++)
+	cout << "Arr1:" << endl;
+	for (int i = 0; i < m; i++)
 	{
-		for (j = 0; i < b2; j++)
+		for (int j = 0; j < n; j++)
 		{
-			cout << B[i][j] << "  ";
+			cout << setw(6) << mas1[i][j];
 		}
-	}
-
-	for (i = 0; i < a2; i++)
-	{
-		for (j = 0; i < b2; j++)
-		{
-			B[i][j] = rand() % 100 + 0;
-		}
-	}
-
-	int** C = new int* [a1];
-
-
-
-	for (int i = 0; i < a1; i++)
-	{
-		for (int j = 0; j < b2; j++)
-		{
-			C[i][j] = 0;
-			for (int k = 0; k < a1; k++)
-				C[i][j] += A[i][k] * B[k][j];
-
-		}
-	}
-
-	cout << "Матрица произведения" << endl;
-
-	for (int i = 0; i < a1; i++)
-	{
-		for (int j = 0; j < b2; j++)
-			cout << C[i][j] << " ";
 		cout << endl;
 	}
-	
-	delete[] A;
-	delete[] B;
-	delete[] C;
+
+	cout << "Arr2:" << endl;
+	for (int i = 0; i < k; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			cout << setw(6) << mas2[i][j];
+		}
+		cout << endl;
+
+	}
+
+
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			for (int b = 0; b < k; b++)
+			{
+				mas3[i][j] += (mas1[i][b] * mas2[b][j]);
+			}
+		}
+	}
+	cout << "Result:" << endl;
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			cout << setw(6) << mas3[i][j];
+		}
+		cout << endl;
+	}
+
+
 }

@@ -17,12 +17,7 @@ int* ArrayFuction(int* arr, int** arr2, int N, int M, int N1)
 
     int i = 0;
     int k = 0;
-    int q, q1, q2;
     int j = 0;
-    
-
-    q = 0;
-    q2 = 0;
 
     cout << endl;
     cout << endl;
@@ -56,9 +51,8 @@ int* ArrayFuction(int* arr, int** arr2, int N, int M, int N1)
                     max = arr2[a][j];
                 }
             }
-            q2 = arr2[i][j] + max;
-            arr3[i][j] = q2;
-            q2 = 0;
+            arr3[i][j] = arr2[i][j] + max;
+
         }
 
     }
