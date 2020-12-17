@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-#define N (100)
+
 int main()
 {
 	srand(time(NULL));
@@ -13,9 +13,7 @@ int main()
 		n = 0, 
 		k = 0, 
 		l = 0;
-	int mas1[N][N]{}, 
-		mas2[N][N]{}, 
-		mas3[N][N]{};
+
 
 
 	cout << "Введите размер 1 матрици:(не больше 100) ";
@@ -29,11 +27,27 @@ int main()
 		return 0;
 	}
 
+	int** arr = new int* [m];
+
+	for (int i = 0; i < m; i++)
+	{
+		arr[i] = new int[n];
+	}
+
+	int** arr2 = new int* [k];
+	for (int i = 0; i < m; i++)
+	{
+		arr[i] = new int[l];
+	}
+	
+	int** arr3 = new int* [k];
+
+
 	for (int i = 0; i < m; i++)
 	{
 		for (int j = 0; j < n; j++)
 		{
-			mas1[i][j] = rand() % 4;
+			arr[i][j] = rand() % 4;
 		}
 	}
 
@@ -41,26 +55,26 @@ int main()
 	{
 		for (int j = 0; j < l; j++)
 		{
-			mas2[i][j] = rand() % 4;
+			arr2[i][j] = rand() % 4;
 		}
 	}
 
-	cout << "Arr1:" << endl;
+	cout << "Array1:" << endl;
 	for (int i = 0; i < m; i++)
 	{
 		for (int j = 0; j < n; j++)
 		{
-			cout << setw(6) << mas1[i][j];
+			cout << setw(6) << arr[i][j];
 		}
 		cout << endl;
 	}
 
-	cout << "Arr2:" << endl;
+	cout << "Array2:" << endl;
 	for (int i = 0; i < k; i++)
 	{
 		for (int j = 0; j < l; j++)
 		{
-			cout << setw(6) << mas2[i][j];
+			cout << setw(6) << arr2[i][j];
 		}
 		cout << endl;
 
@@ -73,7 +87,7 @@ int main()
 		{
 			for (int b = 0; b < k; b++)
 			{
-				mas3[i][j] += (mas1[i][b] * mas2[b][j]);
+				arr3[i][j] += (arr[i][b] * arr2[b][j]);
 			}
 		}
 	}
@@ -82,10 +96,28 @@ int main()
 	{
 		for (int j = 0; j < l; j++)
 		{
-			cout << setw(6) << mas3[i][j];
+			cout << setw(6) << arr3[i][j];
 		}
 		cout << endl;
 	}
 
+
+
+
+	for (int i = 0; i < n; i++)
+	{
+		delete[] arr[i];
+	}
+	for (int i = 0; i < k; i++)
+	{
+		delete[] arr2[i];
+	}
+	for (int i = 0; i < n; i++)
+	{
+		delete[] arr3[i];
+	}
+	delete[] arr;
+	delete[] arr2;
+	delete[] arr3;
 
 }
