@@ -2,7 +2,7 @@
 #include <string>
 
 using namespace std;
-#define a 10
+#define a 100
 
 int main()
 {
@@ -15,12 +15,7 @@ int main()
 		seats[i] = i + 1;
 	}
 
-	for (i = 0; i < a && k < 5 && n < 5; i++)
-	{
-		cout << seats[i] << endl;
-	}
-
-	for (i = 0; i < a; i++)
+	for (i = 0; i < 10 ; )
 	{
 		cout << "Do you smoke? ";
 		getline(cin, answer);
@@ -32,33 +27,32 @@ int main()
 				y = seats[k];
 				cout << "Seat #" << y << " is taken" << endl;
 				k++;
+				i++;
 				break;
 			}
 		}
 		else if (answer == "No")
 		{
-
 			for (; n < 5; )
 			{
 
 				no = seats[n] + 5;
 				cout << "Seat #" << no << " is taken" << endl;
 				n++;
+				i++;
 				break;
 			}
 		}
-
-
 
 		if (k > 4)
 		{
 			cout << "Places for  smokes are already booked\n";
 			continue;
-				}
+		}
 		if (n > 4)
 		{
 			cout << "Places for non smokes are already booked\n";
-			continue;	
+			continue;
 		}
 		if (n + k > 9)
 		{
@@ -66,7 +60,5 @@ int main()
 			break;
 		}
 	}
-
-	
 	return 0;
 }

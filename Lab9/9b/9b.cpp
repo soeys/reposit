@@ -1,123 +1,92 @@
-#include <time.h>
-#include <iomanip>
-#include <stdlib.h>
 #include <iostream>
-
+#include <stdio.h>
+#include <time.h>
 using namespace std;
 
 int main()
 {
-	srand(time(NULL));
-	
-	int m = 0, 
-		n = 0, 
-		k = 0, 
-		l = 0;
+    srand(time(NULL));
 
+    int row1, row2, col1, col2;
+    int** Arr1, ** Arr2, ** Arr3;
+    cout << "Введите количество строк первой матрицы: ";
+    cin >> row1;
+    cout << "Введите количество столбцов первой матрицы: ";
+    cin >> col1;
+    cout << "Введите количество строк второй матрицы: ";
+    cin >> row2;
+    cout << "Введите количество столбцов второй матрицы: ";
+    cin >> col2;
+    if (col1 != row2)
+    {
+        cout << "Умножение невозможно!";
+        return 0;
+    }
 
+    Arr1 = new int* [row1];
+    for (int i = 0; i < row1; i++)
+    {
+        Arr1[i] = new int[col1];
+        for (int j = 0; j < col1; j++)
+        {
+            Arr1[i][j] = rand() % 5;
+        }
+    }
 
-	cout << "Введите размер 1 матрици:(не больше 100) ";
-	cin >> m >> n;
-	cout << "Введите размер 2 матрици:(не больше 100) ";
-	cin >> k >> l;
+    for (int i = 0; i < row1; i++)
+    {
+        for (int j = 0; j < col1; j++)
+        {
+            cout << Arr1[i][j] << " ";
+        }
+        cout << endl;
+    }
 
+    cout << endl;
 
-	if (n != k) {
-		cout << "Неверно заданые размеры матриц!!!";
-		return 0;
-	}
+    Arr2 = new int* [row2];
+    for (int i = 0; i < row2; i++)
+    {
+        Arr2[i] = new int[col2];
+        for (int j = 0; j < col2; j++)
+        {
+            Arr2[i][j] = rand() % 5;
+        }
+    }
+    
 
-	int** arr = new int* [m];
+    for (int i = 0; i < row2; i++)
+    {
+        for (int j = 0; j < col2; j++)
+        {
+            cout << Arr2[i][j] << " ";
+        }
+        cout << endl;
+    }
 
-	for (int i = 0; i < m; i++)
-	{
-		arr[i] = new int[n];
-	}
+    Arr3 = new int* [row1];
+    for (int i = 0; i < row1; i++)
+    {
+        Arr3[i] = new int[col2];
+        for (int j = 0; j < col2; j++)
+        {
+            Arr3[i][j] = 0;
+            for (int k = 0; k < col1; k++)
+            {
+                Arr3[i][j] += Arr1[i][k] * Arr2[k][j];
+            }
+        }
+    }
 
-	int** arr2 = new int* [k];
-	for (int i = 0; i < m; i++)
-	{
-		arr[i] = new int[l];
-	}
-	
-	int** arr3 = new int* [k];
+    cout << "Матрица произведения" << endl;
+    for (int i = 0; i < row1; i++)
+    {
+        for (int j = 0; j < col2; j++)
+        {
+            cout << Arr3[i][j] << " ";
+        }
+        cout << endl;
+    }
 
-
-	for (int i = 0; i < m; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			arr[i][j] = rand() % 4;
-		}
-	}
-
-	for (int i = 0; i < k; i++)
-	{
-		for (int j = 0; j < l; j++)
-		{
-			arr2[i][j] = rand() % 4;
-		}
-	}
-
-	cout << "Array1:" << endl;
-	for (int i = 0; i < m; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			cout << setw(6) << arr[i][j];
-		}
-		cout << endl;
-	}
-
-	cout << "Array2:" << endl;
-	for (int i = 0; i < k; i++)
-	{
-		for (int j = 0; j < l; j++)
-		{
-			cout << setw(6) << arr2[i][j];
-		}
-		cout << endl;
-
-	}
-
-
-	for (int i = 0; i < m; i++)
-	{
-		for (int j = 0; j < l; j++)
-		{
-			for (int b = 0; b < k; b++)
-			{
-				arr3[i][j] += (arr[i][b] * arr2[b][j]);
-			}
-		}
-	}
-	cout << "Result:" << endl;
-	for (int i = 0; i < m; i++)
-	{
-		for (int j = 0; j < l; j++)
-		{
-			cout << setw(6) << arr3[i][j];
-		}
-		cout << endl;
-	}
-
-
-
-
-	for (int i = 0; i < n; i++)
-	{
-		delete[] arr[i];
-	}
-	for (int i = 0; i < k; i++)
-	{
-		delete[] arr2[i];
-	}
-	for (int i = 0; i < n; i++)
-	{
-		delete[] arr3[i];
-	}
-	delete[] arr;
-	delete[] arr2;
-	delete[] arr3;
-
+    return 0;
 }

@@ -6,11 +6,80 @@ using namespace std;
 #define N 20
 #include <chrono>
 
+int* pancake(int* arr, int size)
+{
+    for (int cur_size = size; cur_size > 1; cur_size--)
+    {
+
+        int max = 0;
+        for (int ind = 0; ind < cur_size; ind++)
+        {
+            if (arr[ind] > arr[max])
+            {
+                max = ind;
+            }
+        }
+
+        if (max == cur_size - 1)
+            continue;
+
+        for (int j = 0, i = max; j < i; i--, j++)
+        {
+            swap(arr[j], arr[i]);
+        }
+        for (int i = 0, j = cur_size - 1; i < j; i++, j--)
+        {
+            swap(arr[i], arr[j]);
+        }
+    }
+    return arr;
+}
+
+int* countingsort(int* arr, int size) 
+{
+    int max = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+    }
+
+    int* count = new int[++max];
+
+    for (int j = 0; j < max; j++)
+    {
+        count[j] = 0;
+    }
+    for (int i = 0; i < size; i++)
+    {
+        count[arr[i]]++;
+    }
+
+    int  mainarrayindex = 0;
+    for (int j = 0; j < max; j++)
+    {
+        int temp = count[j];
+        while (temp--)
+        {
+            arr[mainarrayindex++] = j;
+        }
+    }
+
+    delete[] count;
+
+    return arr;
+}
+
+
 int main()
 {
     short mas;
     int size;
     int method;
+
+    int arr3[100];
 
     double dur_arr[M];
     long F = 0;
@@ -32,7 +101,6 @@ int main()
         {
             arr[i - 1] = i;
         }
-        for (int i = 0; i < size; printf("%3d", arr[i++]));
         cout << endl;
         break;
     case 2:
@@ -40,16 +108,16 @@ int main()
         {
             arr[i] = size - i;
         }
-        for (int i = 0; i < size; printf("%3d", arr[i++]));
         break;
     case 3:
         for (int i = 0; i < size; i++)
         {
-            arr[i] = rand() % 100;
+            arr3[i] = arr[i] = rand() % 100;
         }
-        for (int i = 0; i < size; printf("%3d", arr[i++]));
         break;
     }
+    for (int i = 0; i < size; printf("%3d", arr[i++]));
+
     cout << endl;
     cout << "Выберите метод сортировки: " << endl;
     cout << "1 - Блинная сортировка" << endl;
@@ -62,31 +130,32 @@ int main()
     case 1:
         for (int i = 0; i < M; i++)
         {
-            auto start = std::chrono::high_resolution_clock::now();
-            for (int cur_size = size; cur_size > 1; cur_size--)
+            switch (mas)
             {
-
-                int max = 0;
-                for (int ind = 0; ind < cur_size; ind++)
+            case 1:
+                for (int i = 1; i < size + 1; i++)
                 {
-                    if (arr[ind] > arr[max])
-                    {
-                        max = ind;
-                    }
+                    arr[i - 1] = i;
                 }
-
-                if (max == cur_size - 1)
-                    continue;
-
-                for (int j = 0, i = max; j < i; i--, j++)
+                break;
+            case 2:
+                for (int i = 0; i < size; i++)
                 {
-                    swap(arr[j], arr[i]);
+                    arr[i] = size - i;
                 }
-                for (int i = 0, j = cur_size - 1; i < j; i++, j--)
+                break;
+            case 3:
+                for (int i = 0; i < size; i++)
                 {
-                    swap(arr[i], arr[j]);
+                    arr[i] = arr3[i];
                 }
+                break;
             }
+
+            auto start = std::chrono::high_resolution_clock::now();  
+            
+            pancake(arr, size);
+
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> duration = end - start;
             dur_arr[i] = duration.count();
@@ -107,41 +176,32 @@ int main()
     case 2:
         for (int i = 0; i < M; i++)
         {
+            switch (mas)
+            {
+            case 1:
+                for (int i = 1; i < size + 1; i++)
+                {
+                    arr[i - 1] = i;
+                }
+                break;
+            case 2:
+                for (int i = 0; i < size; i++)
+                {
+                    arr[i] = size - i;
+                }
+                break;
+            case 3:
+                for (int i = 0; i < size; i++)
+                {
+                    arr[i] = arr3[i];
+                }
+                break;
+            }
+
             auto start = std::chrono::high_resolution_clock::now();
 
-
-
-            int max = 0;
-            for (int i = 0; i < size; i++)
-            {
-                if (arr[i] > max)
-                {
-                    max = arr[i];
-                }
-            }
-
-            int* count = new int[++max];
-
-            for (int j = 0; j < max; j++)
-            {
-                count[j] = 0;
-            }
-            for (int i = 0; i < size; i++)
-            {
-                count[arr[i]]++;
-            }
-
-            int  mainarrayindex = 0;
-            for (int j = 0; j < max; j++)
-            {
-                int temp = count[j];
-                while (temp--)
-                {
-                    arr[mainarrayindex++] = j;
-                }
-            }
-
-            delete[] count;
+            countingsort(arr, size);
+            
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> duration = end - start;
 
@@ -158,14 +218,7 @@ int main()
         std::cout << "Duration a" << " = " << aver_dur / (M - 1) << "s\n";
 
         for (int i = 0; i < size; printf("%3d", arr[i++]));
-
-
         break;
-
-
     }
-
-
     delete[] arr;
-
 }
