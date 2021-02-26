@@ -1,23 +1,23 @@
 #include <iostream>
 using namespace std;
 
-void step(int x)
+void foo(int x)
 {
     int c;
     c = x % 5;
     x /= 5;
     if (x > 0)
     {
-        step(x);
+        foo(x);
     }
     cout << c;
 }
 
 void main()
 {
-    int a;
+    int x;
     cout << "Введите число: ";
-    cin >> a;
+    cin >> x;
     cout << "Ваше число: ";
-    step(a);
+    foo(x);
 }
