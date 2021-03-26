@@ -1,36 +1,60 @@
 #include <iostream>
 #include<string>
-#include <iomanip>      // std::setw
+#include <iomanip>  // std::setw
 using namespace std;
 
 struct culture
 {
-	string name;
+	char name[20];
 	char type;
 	int square;
 	int yield;
 
 } mm[3];
 
-void table_sort(culture x)
+void table_sort(culture)
 {
+	int option_two;
 	int temp;
 	int size = 3;
-	for (int i = 0; i < size - 1; i++)
+	char name_temp[15];
+	cout << "By square - 1, by yield - 2 >>";
+	cin >> option_two;
+
+	switch (option_two)
 	{
-		for (int j = 0; j < size - i - 1; j++)
+	case 1:
+		for (int i = 0; i < size - 1; i++)
 		{
-			if (mm[j].square > mm[j + 1].square) {
-				// меняем элементы местами
-				temp = mm[j].square;
-				mm[j].square = mm[j + 1].square;
-				mm[j + 1].square = temp;
+			for (int j = 0; j < size - i - 1; j++)
+			{
+				if (mm[j].square > mm[j + 1].square)
+				{
+					temp = mm[j].square;
+					mm[j].square = mm[j + 1].square;
+					mm[j + 1].square = temp;
+				}
 			}
+		}
+		break;
+	case 2:
+		for (int i = 0; i < size - 1; i++)
+		{
+			for (int j = 0; j < size - i - 1; j++)
+			{
+				if (mm[j].yield > mm[j + 1].yield) {
+					temp = mm[j].yield;
+					//name_temp = { mm[j].name };
+					mm[j].yield = mm[j + 1].yield;
+					mm[j + 1].yield = temp;
+				}
+			}
+			break;
 		}
 	}
 }
 
-void table_print(culture x)
+void table_print(culture)
 {
 	printf("|-------------------------------------------------------------------|\n");
 	printf("|                      Agricultural crops                           |\n");
@@ -47,11 +71,12 @@ void table_print(culture x)
 	printf("|-------------------------------------------------------------------|\n");
 }
 
-void random_filling(culture x)
+void random_filling(culture)
 {
-	mm[0].name = "Soy";
-	mm[1].name = "Miller";
-	mm[2].name = "Rice";
+
+	mm[0] = { "Soy" };
+	mm[1] = { "Miller" };
+	mm[2] = { "Rice" };
 	mm[0].type = 'B';
 	mm[1].type = 'C';
 	mm[2].type = 'C';
@@ -62,7 +87,7 @@ void random_filling(culture x)
 	}
 }
 
-void keyboard_filling(culture x)
+void keyboard_filling(culture)
 {
 	for (int i = 0; i < 3; i++) {
 		cout << "Введите Наименование Тип Посевная площадь (га) Урожайность (ц/га)";
@@ -75,9 +100,8 @@ void keyboard_filling(culture x)
 
 int main()
 {
-	struct culture x;
 	int option;
-	srand(time(0));
+
 	while (1) {
 		cout << "Меню различного заполнения списка структур" << endl;
 		cout << "1. Ввод с экрана " << endl;
@@ -90,16 +114,16 @@ int main()
 		switch (option)
 		{
 		case 1:
-			keyboard_filling(x);
+			keyboard_filling(mm[3]);
 			break;
 		case 2:
-			random_filling(x);
+			random_filling(mm[3]);
 			break;
 		case 3:
-			table_sort(x);
+			table_sort(mm[3]);
 			break;
 		case 4:
-			table_print(x);
+			table_print(mm[3]);
 			break;
 		case 5: exit(0);
 		}

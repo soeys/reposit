@@ -15,12 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lab1 SM2.cpp">
+    <ClCompile Include="Lab 2 SM2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fucnheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h">
+    <ClInclude Include="asdasd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fucnheader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="prikol.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

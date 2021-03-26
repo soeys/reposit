@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ae5e5c77-e750-4c47-8abb-a3014717750c}</ProjectGuid>
-    <RootNamespace>Lab1SM2</RootNamespace>
+    <ProjectGuid>{14fb23b6-a1da-494b-b007-50bc8f111699}</ProjectGuid>
+    <RootNamespace>Lab2SM2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,10 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Lab1 SM2.cpp" />
+    <ClCompile Include="Lab 2 SM2.cpp" />
+    <ClCompile Include="fucnheader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="asdasd.h" />
+    <ClInclude Include="fucnheader.h" />
+    <ClInclude Include="prikol.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
