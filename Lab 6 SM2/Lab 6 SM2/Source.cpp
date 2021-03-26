@@ -17,7 +17,7 @@ void swapp(char* s1)
 			cout << s2[i];
 		}
 	}
-		cout << endl << endl;
+	COUTDOUBLE;
 }
 
 #endif // !DEBUG
