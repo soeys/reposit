@@ -103,37 +103,37 @@ void random_filling()
 	miller.yield = rand() % 50 + 50;
 
 
-	//fputs(soy.name, f);	
-	//fprintf(f, " ");
-	//fputc(soy.type, f);
-	//fprintf(f, " ");
-	//fprintf(f, "%d", soy.square);
-	//fprintf(f, " ");
-	//fprintf(f, "%d", soy.yield);
+	fputs(soy.name, f);	
+	fprintf(f, " ");
+	fputc(soy.type, f);
+	fprintf(f, " ");
+	fprintf(f, "%d", soy.square);
+	fprintf(f, " ");
+	fprintf(f, "%d", soy.yield);
 
-	//fprintf(f, "\n");
+	fprintf(f, "\n");
 
-	//fputs(miller.name, f);
-	//fprintf(f, " ");
-	//fputc(miller.type, f);
-	//fprintf(f, " ");
-	//fprintf(f, "%d", miller.square);
-	//fprintf(f, " ");
-	//fprintf(f, "%d", miller.yield);
+	fputs(miller.name, f);
+	fprintf(f, " ");
+	fputc(miller.type, f);
+	fprintf(f, " ");
+	fprintf(f, "%d", miller.square);
+	fprintf(f, " ");
+	fprintf(f, "%d", miller.yield);
 
-	//fprintf(f, "\n");
+	fprintf(f, "\n");
 
-	//fputs(rice.name, f);
-	//fprintf(f, " ");
-	//fputc(rice.type, f);
-	//fprintf(f, " ");
-	//fprintf(f, "%d", rice.square);
-	//fprintf(f, " ");
-	//fprintf(f, "%d", rice.yield);
+	fputs(rice.name, f);
+	fprintf(f, " ");
+	fputc(rice.type, f);
+	fprintf(f, " ");
+	fprintf(f, "%d", rice.square);
+	fprintf(f, " ");
+	fprintf(f, "%d", rice.yield);
 
-	fwrite(&soy, sizeof(culture), 1, f);
-	//fwrite(&rice, sizeof(culture), 1, f);
-	//fwrite(&miller, sizeof(culture), 1, f);
+	/*fwrite(&soy, sizeof(culture), 1, f);
+	fwrite(&rice, sizeof(culture), 1, f);
+	fwrite(&miller, sizeof(culture), 1, f);*/
 
 
 	fclose(f);
@@ -209,7 +209,7 @@ void endfile() {
 
 	if (f == NULL)
 	{
-		puts("Îøèáêà îòêðûòèÿ ôàéëà.");
+		puts(".......");
 		exit(0);
 	}
 	fseek(f, 0, SEEK_SET);
