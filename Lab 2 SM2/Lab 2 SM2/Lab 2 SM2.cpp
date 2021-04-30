@@ -1,14 +1,16 @@
-#include "asdasd.h"
-#include "fucnheader.h"
-#include "asdasd.h"
-#include "fucnheader.h"
+﻿#include <iostream>
+#include<string>
+#include <iomanip>  // std::setw
+using namespace std;
+#include "Header.h"
+#define printtype case 1: keyboard_filling();	break; case 2: random_filling(); break;
 
 int main()
 {
-
 	int option;
 
-	while (1) {
+	while (1)
+	{
 		cout << "Меню различного заполнения списка структур" << endl;
 		cout << "1. Ввод с экрана " << endl;
 		cout << "2. Рандомайзер" << endl;
@@ -19,20 +21,10 @@ int main()
 		cin >> option;
 		switch (option)
 		{
-		case 1:
-			keyboard_filling(mm[3]);
-			break;
-		case 2:
-			random_filling(mm[3]);
-			break;
-		case 3:
-			table_sort(mm[3]);
-			break;
-		case 4:
-			table_print(mm[3]);
-			break;
-		case 5: exit(0);
+			printtype
+			case 3: table_sort(); break;
+			case 4:	table_print();	break;
+			case 5: exit(0);
 		}
 	}
-
 }
