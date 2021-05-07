@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9a0e05d4-5f49-4254-9c36-07827f49d677}</ProjectGuid>
+    <ProjectGuid>{54cfc606-3be5-43b5-851f-90f7782b2e28}</ProjectGuid>
     <RootNamespace>Lab8SM2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -139,11 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="foo.cpp" />
     <ClCompile Include="Lab 8 SM2.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="foo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

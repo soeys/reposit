@@ -12,7 +12,7 @@ struct culture
 
 } mm[3];
 
-void table_sort(culture)
+void table_sort()
 {
 	int option_two;
 	int temp;
@@ -54,7 +54,7 @@ void table_sort(culture)
 	}
 }
 
-void table_print(culture)
+void table_print()
 {
 	printf("|-------------------------------------------------------------------|\n");
 	printf("|                      Agricultural crops                           |\n");
@@ -71,7 +71,7 @@ void table_print(culture)
 	printf("|-------------------------------------------------------------------|\n");
 }
 
-void random_filling(culture)
+void random_filling()
 {
 
 	mm[0] = { "Soy" };
@@ -87,7 +87,7 @@ void random_filling(culture)
 	}
 }
 
-void keyboard_filling(culture)
+void keyboard_filling()
 {
 	for (int i = 0; i < 3; i++) {
 		cout << "Введите Наименование Тип Посевная площадь (га) Урожайность (ц/га)";
@@ -114,16 +114,16 @@ int main()
 		switch (option)
 		{
 		case 1:
-			keyboard_filling(mm[3]);
+			keyboard_filling();
 			break;
 		case 2:
-			random_filling(mm[3]);
+			random_filling();
 			break;
 		case 3:
-			table_sort(mm[3]);
+			table_sort();
 			break;
 		case 4:
-			table_print(mm[3]);
+			table_print();
 			break;
 		case 5: exit(0);
 		}

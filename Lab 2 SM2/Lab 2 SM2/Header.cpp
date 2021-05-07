@@ -1,6 +1,3 @@
-#ifndef D
-#define D
-
 #include "Header.h"
 #include <iostream>
 #include<string>
@@ -67,8 +64,3 @@ void keyboard_filling()
 		cin >> mm[i].yield;
 	}
 }
-
-#endif // !D
-
-
-

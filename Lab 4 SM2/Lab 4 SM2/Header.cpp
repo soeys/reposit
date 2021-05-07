@@ -1,6 +1,3 @@
-#ifndef DEBUG
-#define DEBUG
-
 #include "Header.h"
 #include <iostream>
 #include <iomanip>
@@ -24,9 +21,6 @@ void arrayfilling(int* A, int size)
 
 void maxarray(int* A, int* amax, int size, int max1, int max2, int max3)
 {
-
-
-
 	int i;
 
 	for (i = 0; i < size; i++) {
@@ -55,6 +49,5 @@ void maxarray(int* A, int* amax, int size, int max1, int max2, int max3)
 	amax[2] = max3;
 }
 
-#endif // DEBUG
 
 
