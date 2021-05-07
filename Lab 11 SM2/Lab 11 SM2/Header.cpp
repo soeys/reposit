@@ -6,7 +6,7 @@
 #include <iomanip>
 using namespace std;
 #define N 3
-#include "foo.h"
+#include "Header.h"
 
 void church::set(string a, char b, int c, int d) {
     name = a;

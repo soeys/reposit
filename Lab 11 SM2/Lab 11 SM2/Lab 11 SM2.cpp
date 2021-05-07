@@ -7,7 +7,7 @@
 #include <iomanip>
 using namespace std;
 #define N 3
-#include "foo.h"
+#include "Header.h"
 
 
 int main(void) {
