@@ -1,13 +1,12 @@
 ﻿#include "Header.h"
 
-
+#define A switch(op){case 1: foo(a, COL); break; case 2: foo(a, COL); break; }
 int main()
 {
 	int ROWS, COL;
 	cout << "Rows: ";
 	cin >> ROWS;
-	cout << "Collums: ";
-	cin >> COL;
+	COL = ROWS;
 
 	int **a = new int* [ROWS];
 	int* p = new int[ROWS * COL];
@@ -15,32 +14,22 @@ int main()
 	{
 		a[i] = new int[COL];
 	}
-	CH;
-	switch(a)
-	{
-	case 1:
-		matrixfilling(a, ROWS, COL);
-		matrixprint(a, ROWS, COL);
-		SPLITTER
 
-			foo(a, COL);
+	matrixfilling(a, ROWS, COL);
+	matrixprint(a, ROWS, COL);
+	SPLITTER
+		int op;
+	cin >> op;
+	A;
+	matrixprint(a, ROWS, COL);
+	SPLITTER
 
-
-		matrixprint(a, ROWS, COL);
-		SPLITTER
-			break;
-	case 2:	
-		break;
-	default:
-		break;
-	}
+	
 	for (int i = 0; i < ROWS; i++)
-	{
-		delete[] a[i];
-	}
+	{	delete[] a[i];	}
 
 	delete[] a;
-	delete[]p;
+	delete[] p;
 
 	return 0;
 }

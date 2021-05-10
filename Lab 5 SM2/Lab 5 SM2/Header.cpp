@@ -1,6 +1,4 @@
-#ifndef DEBUG
 
-#define DEBUG
 #include "Header.h"
 
 void matrixfilling(int** a, int ROWS, int COL)
@@ -38,7 +36,15 @@ void foo(int** a, int COL)
 	}
 }
 
+void foo2(int** a, int COL)
+{
+	for (int i = 0; i < COL; ++i)
+	{
+		int p = *(a + i * COL + i);
+		*(a + i * COL + i) = *(a + i * (COL - 1) - i);
+		*(a + i * (COL - 1) - i) = *p;
+	}
+}
 
-#endif // !1
 
 
