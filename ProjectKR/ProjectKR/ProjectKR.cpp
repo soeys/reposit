@@ -1,4 +1,4 @@
-#include "KR.h"
+#include "ProjectKR.h"
 
 #include <iostream>
 using namespace std;
