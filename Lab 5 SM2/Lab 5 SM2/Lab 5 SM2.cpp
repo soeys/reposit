@@ -1,6 +1,6 @@
 ﻿#include "Header.h"
 
-#define A switch(op){case 1: foo(a, COL); break; case 2: foo(a, COL); break; }
+#define A switch(op){case 1: foo(a, COL); matrixprint(a, ROWS, COL); break; case 2: foo23(p, COL); matrixprint2(p, ROWS, COL); break; }
 int main()
 {
 	int ROWS, COL;
@@ -16,13 +16,21 @@ int main()
 	}
 
 	matrixfilling(a, ROWS, COL);
-	matrixprint(a, ROWS, COL);
+
+
+	
+
 	SPLITTER
-		int op;
+
+		cout << "1,2 - ? > ";
+	int op;
 	cin >> op;
+	
 	A;
-	matrixprint(a, ROWS, COL);
 	SPLITTER
+
+	printf("\nМодернизированный массив: \n");   //Вывод модернизированного массива
+
 
 	
 	for (int i = 0; i < ROWS; i++)

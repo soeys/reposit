@@ -22,10 +22,8 @@ const char* sixth[] = { "", "десять тысячь ", "двадцать ты
 	"восемдесят тысячь ", "девяносто тысячь " };
 
 
-string fun(int number)
-{
+string fun(int number) {
 	std::string two;
-
 	two = "";
 
 	int d2;
@@ -88,14 +86,11 @@ void files1(string s) {
 	fclose(f);
 }
 
-int sort(const char* cstr)
-{
+int sort(const char* cstr) {
 	string str1;
 	int n = strlen(cstr); // n= длина текста
 	for (int i = 0; i < n; i++)
 		if (cstr[i] >= '0' && cstr[i] <= '9') str1 += cstr[i];
-
-
 	int number = stoi(str1);
 	return number;
 }
